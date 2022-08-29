@@ -1,0 +1,15 @@
+name: Build
+on: [pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - uses: actions/checkout@v2 
+      - uses: avinashupadhya99/kubescape-action@main
+        with:
+          files: "kubernetes/*.yaml"
